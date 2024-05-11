@@ -1,5 +1,5 @@
 import './Form.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, SetStateAction } from 'react'
 import Data from './Data'
 
 const API_URL = "http://localhost:3010/"
@@ -12,8 +12,8 @@ function Form () {
 
   useEffect(() => {
     const userInStorageString = window.localStorage.getItem("user")
-    const userInStorage = JSON.parse(userInStorageString)
-    console.log(userInStorage)
+    const userInStorage = JSON.parse(userInStorageString);
+    //console.log(userInStorage)
     setUser(userInStorage)
   }, [])
 
@@ -28,21 +28,27 @@ function Form () {
     password: "asd123"
   }
   
-  const handleInputChange = (stateUpdate) => {
-    return (event) => {
+  const handleInputChange = (stateUpdate: { (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (arg0: any): void }) => {
+    return (event: { target: { value: any } }) => {
       stateUpdate(event.target.value)
     }
   }
 
   const handleOnClick = () => {
+     
+     // Fetch desprotegido
     logIn({email, password})
-    /*setShowData(!showData)
     
+
+
+    /*setShowData(!showData)
     if(email === loginData.email && password === loginData.password){
         alert("Inicio de sesion Exitoso!!")
-    }*/
-    //se llama toogle the flag
-    //setShowData(!showData)
+    }
+    se llama toogle the flag
+    setShowData(!showData)*/
+
+    //fetchCategory()
   }
 
   const logIn = async ({email, password}: {email:String, password:string}) => {
@@ -68,6 +74,21 @@ function Form () {
       console.log(error)
     }
   }
+
+  const fetchCategory = async () => {
+    try{
+        const response = await fetch(API_URL + "api/v1/categories", {
+          headers: {
+            'Authorization': `Bearer ${user.token}`
+          }
+        })
+        const data = await response.json()
+        window.localStorage.setItem("user", JSON.stringify(data))
+        console.log(data)
+    } catch (error){
+      console.log(error)
+    }
+  }
   
   return (
     <>  {
@@ -78,6 +99,8 @@ function Form () {
                       <p>Email: {user.user.email} </p>
                       <p>Name: {user.user.name}</p>
                       <p>Id: {user.user.id}</p>
+                      <p>Address: {user.user.address}</p>
+                      <p>PhoneNumber: {user.user.phoneNumber}</p>
                     </>
                 }
                 </section>
