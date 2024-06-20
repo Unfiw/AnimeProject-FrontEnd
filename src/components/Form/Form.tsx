@@ -9,12 +9,11 @@ function Form () {
   const [email, setEmail] = useState<string>("")
   const [showData, setShowData] = useState<boolean>(false)
   const [user, setUser] = useState<any>(null)
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    const userInStorageString = window.localStorage.getItem("user")
-    const userInStorage = JSON.parse(userInStorageString);
-    //console.log(userInStorage)
-    setUser(userInStorage)
+    //localStorage.clear();
+    if(localStorage.getItem("token")) fetchCategory();
   }, [])
 
   useEffect(() =>{
@@ -65,7 +64,9 @@ function Form () {
         if(response.status === 200){
           const data = await response.json()
           setUser(data)
-          window.localStorage.setItem("user", JSON.stringify(data))
+          console.log(data.token);
+          window.localStorage.setItem("token", data.token)
+          fetchCategory();
         } else {
           alert("Usuario y contraseña incorrecta")
         }
@@ -79,12 +80,13 @@ function Form () {
     try{
         const response = await fetch(API_URL + "api/v1/categories", {
           headers: {
-            'Authorization': `Bearer ${user.token}`
+            'Authorization': `Bearer ${localStorage.getItem("token")}`
           }
         })
         const data = await response.json()
-        window.localStorage.setItem("user", JSON.stringify(data))
+        //window.localStorage.setItem("user", JSON.stringify(data))
         console.log(data)
+        setCategories(data);
     } catch (error){
       console.log(error)
     }
@@ -92,20 +94,19 @@ function Form () {
   
   return (
     <>  {
-            user && (
-              <section className='dataContainer'>
-                {
-                    <>
-                      <p>Email: {user.user.email} </p>
-                      <p>Name: {user.user.name}</p>
-                      <p>Id: {user.user.id}</p>
-                      <p>Address: {user.user.address}</p>
-                      <p>PhoneNumber: {user.user.phoneNumber}</p>
-                    </>
-                }
-                </section>
-            )
+            categories.length !== 0 && categories.map(categorie => (
+              <section>
+                <p>Categorie</p>
+                <p>{categorie.name}</p>
+                <p>{categorie.description}</p>
+                <p>{categorie._id}</p>
+                <p>User:<br></br>{categorie.user.name}</p>
+                <p>{categorie.user.email}</p>
+              </section>
+              ))
         }
+
+
         <Data email={email} password={password} showData={showData}/>
         <section className="formContainer">
           <span className='inputContainer'>
