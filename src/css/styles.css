@@ -1,0 +1,159 @@
+::after,
+::before,
+*{
+    font-family: 'Outfit', sans-serif;
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html,
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    background-color: #161A30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    width: 100%;
+}
+
+.leftList {
+    list-style: none;
+    display: flex;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 3rem;
+}
+
+.centerList li{
+    list-style: none;
+    display: inline;
+}
+
+.navButtons li {
+    margin: 0 10px;
+}
+
+.navButtons a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 1em;
+}
+
+.navButtons a:hover {
+    color: #A9A9A9;
+}
+
+/* ****************************** */
+
+.heroContainer {
+    height: 90vh !important;
+    display: flex !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+.hero {
+    display: flex !important;
+    width: 100% !important;
+}
+
+.heroImg {
+    margin: 2rem !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ), url(../assets/hero.jpeg) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    font-size: 1.2em !important;
+    color: white !important;
+    filter: saturate(1) !important;
+    transition: filter 0.5s ease !important;
+}
+
+.heroImg:hover {
+    filter: saturate(1.75) !important;
+}
+
+.text-hero {
+    justify-content: center !important;
+    align-content: center !important;
+    align-items: center !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    margin: 6rem 4rem !important;
+    width: 45% !important;
+}
+
+/* ********************************* */
+
+
+
+footer{
+  background-color: #151930;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/**************************************************/
+
+body {
+    margin: 0 ;
+    padding: 0;
+}
+
+svg {
+    position: fixed !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important; /* Coloca el svg detrás del contenido */
+}
+
+text {
+    dominant-baseline: middle !important;
+    text-anchor: middle !important;
+    fill: #ffffff !important;
+    font-size: 16px !important;
+}
+
+/* Ajusta estilos para el resto de tu contenido */
+.main-content {
+    margin-top: 100vh !important; /* Ajusta según el tamaño del svg */
+    padding: 20px ;
+    /* Otros estilos */
+}
+
+h1 {
+  font-size: 2.2em !important;
+}

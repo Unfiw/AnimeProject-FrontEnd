@@ -1,0 +1,120 @@
+/* Reset and global styles */
+::after,
+::before,
+*{
+    font-family: 'Outfit', sans-serif;
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html,
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    background-color: #161A30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    width: 100%;
+}
+
+.leftList {
+    list-style: none;
+    display: flex;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 3rem;
+}
+
+.centerList li{
+    list-style: none;
+    display: inline;
+}
+
+.navButtons li {
+    margin: 0 10px;
+}
+
+.navButtons a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navButtons a:hover {
+    color: #A9A9A9;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Adjust width as needed */
+    padding: 3em; /* Adjust padding as needed */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 3em; 
+    box-sizing: border-box;
+}
+
+.card label {
+    margin-bottom: 8px;
+}
+
+.card input {
+    padding: 8px;
+    margin-bottom: 16px;
+    background-color: #eee; /* Example background color */
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 4px; /* Example border radius */
+    width: 100%; /* Ensure input stretches */
+}
+
+.card button {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.card button:active {
+    transform: scale(0.95);
+}
+
+.card button:focus {
+    outline: none;
+}
+
+.card button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
