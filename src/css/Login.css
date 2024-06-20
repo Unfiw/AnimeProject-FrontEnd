@@ -60,7 +60,7 @@ nav {
 .navButtons a:hover {
     color: #A9A9A9;
 }
-
+/**************************************/
 
 .cardContainer {
     display: flex;
@@ -69,8 +69,9 @@ nav {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 50%; /* Adjust width as needed */
+    width: 20%; /* Adjust width as needed */
     padding: 3em; /* Adjust padding as needed */
+    margin: 0 auto;
 }
 
 .card {
@@ -78,7 +79,7 @@ nav {
     flex-direction: column;
     width: 100%;
     padding: 3em; 
-    box-sizing: border-box;
+    background-color: white;
 }
 
 .card label {

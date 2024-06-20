@@ -94,12 +94,12 @@ const LogIn: React.FC = () => {
             <div className="navButtons">
               <Link to="/">INICIO</Link>
               <Link to="Login">LOGIN</Link>
+
               <li><a href="" className="fa-solid"></a></li>
             </div>
           </ul>
         </nav>
       </header>
-     
       <body>
 
       <Data email={email} password={password} showData={showData} />
@@ -108,6 +108,7 @@ const LogIn: React.FC = () => {
 
             <div className="cardContainer">
               <div className='card'>
+                
                 <label htmlFor="name">Email:</label>
                 <input type="text" id="name" name="name" value={email}
                   onChange={handleInputChange(setEmail)} />

@@ -11,12 +11,12 @@ function MenuPrincipal() {
   const [email, setEmail] = useState<string>("")
   const [showData, setShowData] = useState<boolean>(false)
   const [user, setUser] = useState<any>(null)
-  const [categories, setCategories] = useState([])
+  const [animes, setAnimes] = useState([])
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (localStorage.getItem("token")) fetchCategory();
+    if (localStorage.getItem("token")) fetchAnime();
   }, [])
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function MenuPrincipal() {
     }
   }, [email]);
 
-  const handleInputChange = (stateUpdate: { (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (arg0: any): void }) => {
+  const handleInputChange = (stateUpdate: { (value: SetStateAction<string>): void; }) => {
     return (event: { target: { value: any } }) => {
       stateUpdate(event.target.value)
     }
@@ -35,7 +35,7 @@ function MenuPrincipal() {
     logIn({ email, password })
   }
 
-  const logIn = async ({ email, password }: { email: String, password: string }) => {
+  const logIn = async ({ email, password }: { email: string, password: string }) => {
     try {
       const response = await fetch(API_URL + "api/v1/auth/login", {
         method: 'POST',
@@ -50,7 +50,7 @@ function MenuPrincipal() {
         setUser(data)
         console.log(data.token);
         window.localStorage.setItem("token", data.token)
-        fetchCategory();
+        fetchAnime();
         alert("Bienvenido al sistema")
         navigate('menu-principal')
       } else {
@@ -61,16 +61,16 @@ function MenuPrincipal() {
     }
   }
 
-  const fetchCategory = async () => {
+  const fetchAnime = async () => {
     try {
-      const response = await fetch(API_URL + "api/v1/categories", {
+      const response = await fetch(API_URL + "api/v1/animes", {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("token")}`
         }
       })
       const data = await response.json()
       console.log(data)
-      setCategories(data);
+      setAnimes(data);
     } catch (error) {
       console.log(error)
     }
@@ -78,45 +78,40 @@ function MenuPrincipal() {
 
   return (
     <>
-    
       <header>
-      <nav className="nav">
-        <ul className="leftList">
-          <li className="logo">
-            <a href=""><b>ANIMEDOT</b></a>
-          </li>
-        </ul>
-        <ul className="centerList">
-          <div className="navButtons">
-            <Link to="../Agregar">AGREGAR</Link>
-            <Link to="../">INICIO</Link>
-            <li><a href="" className="fa-solid"></a></li>
-          </div>
-        </ul>
-      </nav>
-    </header>
-    
-    {
-    categories.length !== 0 && categories.map(categorie => (
-      <body>
+        <nav className="nav">
+          <ul className="leftList">
+            <li className="logo">
+              <a href=""><b>ANIMEDOT</b></a>
+            </li>
+          </ul>
+          <ul className="centerList">
+            <div className="navButtons">
+              <Link to="../Agregar">AGREGAR</Link>
+              <Link to="../">INICIO</Link>
+              <li><a href="" className="fa-solid"></a></li>
+            </div>
+          </ul>
+        </nav>
+      </header>
 
-        <div className='cardContainer'>
-
-          <section key={categorie._id} className="card">
-              <p >Anime</p>
-              <p >{categorie.name}</p>
-              <p >{categorie.description}</p>
-              <p >{categorie._id}</p>
-              
-          </section>
-        </div>
-      </body>
-    ))
-}
-
+      {
+        animes.length !== 0 && animes.map(anime => (
+          <body key={anime._id}>
+            <div className='cardContainer'>
+              <section className="card">
+                <p>Anime</p>
+                <p>{anime.name}</p>
+                <p>{anime.studio}</p>
+                <p>{anime.description}</p>
+                <p>{anime._id}</p>
+              </section>
+            </div>
+          </body>
+        ))
+      }
 
       <Data email={email} password={password} showData={showData} />
-     
     </>
   )
 }
