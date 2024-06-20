@@ -1,14 +1,15 @@
+/* Reset and global styles */
 ::after,
 ::before,
-*{
+* {
     font-family: 'Outfit', sans-serif;
-    margin:0;
+    margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
 html,
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -40,7 +41,7 @@ nav {
     margin-left: 3rem;
 }
 
-.centerList li{
+.centerList li {
     list-style: none;
     display: inline;
 }
@@ -61,52 +62,43 @@ nav {
     color: #A9A9A9;
 }
 
-/* ****************************** */
-
-/* ********************************* */
-
-
-
-footer{
-  background-color: #151930;
-  color: white;
-  font-weight: 600;
-  padding: 1rem;
+footer {
+    background-color: #151930;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
 }
 
 footer ul li {
-  display: inline;
-  margin-right: 10px;
+    display: inline;
+    margin-right: 10px;
 }
 
-/**************************************************/
-
 body {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
 }
 
 svg {
-    position: fixed !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: -1 !important; /* Coloca el svg detrás del contenido */
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Coloca el svg detrás del contenido */
 }
 
 text {
-    dominant-baseline: middle !important;
-    text-anchor: middle !important;
-    fill: #ffffff !important;
-    font-size: 16px !important;
+    dominant-baseline: middle;
+    text-anchor: middle;
+    fill: #ffffff;
+    font-size: 16px;
 }
 
-/* Ajusta estilos para el resto de tu contenido */
 .main-content {
-    margin-top: 100vh !important; /* Ajusta según el tamaño del svg */
-    padding: 20px ;
-    /* Otros estilos */
+    margin-top: 100vh; /* Ajusta según el tamaño del svg */
+    padding: 20px;
 }
 
 h1 {
-  font-size: 2.2em !important;
+    font-size: 2.2em;
 }
+

@@ -6,7 +6,9 @@ import MenuPrincipal from './pages/MenuPrincipal';
 import LogIn from './pages/LogIn';
 import Landing from './pages/Landing';
 import ProtectedRoute from './components/ProtectedRoute';
+import Agregar from './pages/Agregar';
 import { HelmetProvider } from 'react-helmet-async';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path="/Login" element={<LogIn />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/inicio" element={<Inicio />} />
+          <Route path="/agregar" element={<Agregar />} />
           <Route path="/menu-principal" element={<ProtectedRoute element={<MenuPrincipal />} />} />
         </Routes>
       </main>

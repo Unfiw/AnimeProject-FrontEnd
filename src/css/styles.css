@@ -157,3 +157,40 @@ text {
 h1 {
   font-size: 2.2em !important;
 }
+
+/* Card Container Styles */
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Card Styles */
+.card {
+  background-color: #f9f9f9; /* Light grey background for the card */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px; /* Padding inside the card */
+  max-width: 400px; /* Maximum width of the card */
+  width: 100%; /* Ensure the card takes full width available */
+}
+
+/* Card Text Styles */
+.card p {
+  margin: 10px 0; /* Space between paragraphs */
+  font-family: 'Arial', sans-serif; /* Font family */
+  color: #333; /* Text color */
+}
+
+/* Specific Styles for Category Label */
+.card p:first-child {
+  font-weight: bold; /* Bold text for "Category" label */
+  color: #555; /* Slightly different color for labels */
+}
+
+/* User Info Label */
+.card p:nth-child(5) {
+  margin-top: 20px; /* Add some space before the user info */
+  font-weight: bold; /* Bold text for "User" label */
+}
